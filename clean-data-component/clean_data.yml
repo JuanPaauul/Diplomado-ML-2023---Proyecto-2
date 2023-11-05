@@ -1,0 +1,23 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+
+name: my_eval_1
+display_name: Eval
+type: command
+
+inputs:
+  data_set:
+    type: uri_folder
+
+outputs:
+  data_clean_output:
+    type: uri_file
+  corr_matrix_output:
+    type: uri_file
+
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+code: ./clean_data_src
+command: >-
+  python clean_data.py 
+  --data_set ${{inputs.data_set}} 
+  --data_clean_output ${{outputs.data_clean_output}}
+  --corr_matrix_output ${{outputs.corr_matrix_output}}

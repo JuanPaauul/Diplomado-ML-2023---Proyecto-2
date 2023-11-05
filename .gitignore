@@ -1,3 +1,7 @@
+water-potability-clean.csv
+water_potability_ds.csv
+config.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
