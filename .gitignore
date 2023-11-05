@@ -1,6 +1,7 @@
 water-potability-clean.csv
 water_potability_ds.csv
 config.json
+env.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
