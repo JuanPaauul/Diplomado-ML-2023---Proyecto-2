@@ -12,6 +12,8 @@ def impute_data(column, missing_values):
 
 parser = argparse.ArgumentParser("score")
 parser.add_argument("--data_set", type=str, help="Path to the dataset")
+parser.add_argument("--data_clean_output", type=str, help="Path of the clean dataset")
+parser.add_argument("--corr_matrix_output", type=str, help="Path of the correlation matrix")
 
 args = parser.parse_args()
 
@@ -27,6 +29,6 @@ correlation_matrix = water_potability_df.corr(method='pearson')
 plt.figure(figsize=(8, 6))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5, vmin=-1, vmax=1)
 plt.title('Correlation Heatmap')
-plt.savefig('corr_matrix.png',bbox_inches='tight',dpi=100) # TODO set the appropriate path to save.
+plt.savefig(args.corr_matrix_output,bbox_inches='tight',dpi=100)
 
-water_potability_df.to_csv('../../water-potability-clean.csv') # TODO set the appropriate path to save.
+water_potability_df.to_csv(args.data_clean_output)
