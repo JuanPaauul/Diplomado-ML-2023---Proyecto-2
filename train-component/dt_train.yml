@@ -5,20 +5,20 @@ display_name: DT_Train
 type: command
 
 inputs:
-  training_data: 
+  training_data:
     type: uri_file
   criterion:
     type: string
     enum:
-        - "gini"
-        - "entropy"
-        - "log_loss"
-  min_samples_split: 
+      - "gini"
+      - "entropy"
+      - "log_loss"
+  min_samples_split:
     type: integer
     default: 2
-  max_depth: 
+  max_depth:
     type: integer
-    default: None
+    default: 4
 
 outputs:
   model_output:
@@ -27,7 +27,7 @@ outputs:
 code: ./dt_train_src
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
 command: >-
-  python train.py 
+  python dt_train.py 
   --training_data ${{inputs.training_data}} 
   --criterion ${{inputs.criterion}}   
   --min_samples_split ${{inputs.min_samples_split}} 

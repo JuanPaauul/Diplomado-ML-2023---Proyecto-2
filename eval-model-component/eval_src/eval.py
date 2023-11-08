@@ -7,13 +7,13 @@ from pathlib import Path
 parser = argparse.ArgumentParser("evaluate")
 parser.add_argument("--scoring_result", type=str, help="Path of scoring result")
 parser.add_argument("--eval_output", type=str, help="Path of output evaluation result")
-parser.add_argument("--Potability", type=str, help="name of target column)")
+parser.add_argument("--target_column", type=str, help="name of target column)")
 args = parser.parse_args()
 
-scoring_result = pd.read_csv(args.scoring_result)
+scoring_result = pd.read_csv(Path(args.scoring_result) / 'score_output.csv')
 
 y_true = scoring_result[args.target_column]
-y_pred = scoring_result['predictions']
+y_pred = scoring_result[args.target_column]
 
 accuracy = accuracy_score(y_true, y_pred)
 confusion = confusion_matrix(y_true, y_pred)

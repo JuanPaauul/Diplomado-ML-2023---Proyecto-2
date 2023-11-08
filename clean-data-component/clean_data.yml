@@ -6,11 +6,11 @@ type: command
 
 inputs:
   data_set:
-    type: uri_folder
+    type: uri_file
 
 outputs:
   data_clean_output:
-    type: uri_file
+    type: uri_folder
   corr_matrix_output:
     type: uri_file
 

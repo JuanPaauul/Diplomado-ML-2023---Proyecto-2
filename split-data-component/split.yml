@@ -6,7 +6,7 @@ type: command
 
 inputs:
   clean_data: 
-    type: uri_file
+    type: uri_folder
   split_ratio_train:
     type: number
     default: 0.8

@@ -7,6 +7,8 @@ type: command
 inputs:
   scoring_result:
     type: uri_folder
+  target_column:
+    type: string
 
 outputs:
   eval_output:
@@ -17,4 +19,5 @@ code: ./eval_src
 command: >-
   python eval.py 
   --scoring_result ${{inputs.scoring_result}} 
+  --target_column ${{outputs.target_column}}
   --eval_output ${{outputs.eval_output}}
