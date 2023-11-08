@@ -61,10 +61,10 @@ _ = tree.plot_tree(dt,
                    class_names=['Not Potable', 'Potable'],
                    filled=True)
 # Guardamos esa imagen en un archivo .svg que facilita su visiualizacion en entornos web
-fig.savefig('water-decision-tree.svg')
+fig.savefig(f'{args.model_output}/water-decision-tree.svg')
 
 # Guardar el modelo creado 
-filename = "decission_tree_modelo.pkl"
+filename = f'{args.model_output}/decission_tree_modelo.pkl'
 pickle.dump(dt, open(filename, "wb"))
 #pickle.dump(dt, open(args.model_output, "wb"))
 print(f"modelo guardado en {args.model_output}")
