@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 
 name: clean_data_component
-display_name: Eval
+display_name: Clean_data
 type: command
 
 inputs:
@@ -14,9 +14,10 @@ outputs:
   corr_matrix_output:
     type: uri_file
 
-environment: azureml:custom-env:1
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
 code: ./clean_data_src
 command: >-
+  pip install seaborn &&
   python clean_data.py 
   --data_set ${{inputs.data_set}} 
   --data_clean_output ${{outputs.data_clean_output}}

@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 
 name: split_data_component
-display_name: Split_DS
+display_name: Split_ds
 type: command
 
 inputs:
