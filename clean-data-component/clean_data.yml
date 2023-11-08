@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 
-name: my_eval_1
+name: clean_data_component
 display_name: Eval
 type: command
 
@@ -14,7 +14,7 @@ outputs:
   corr_matrix_output:
     type: uri_file
 
-environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+environment: azureml:custom-env:1
 code: ./clean_data_src
 command: >-
   python clean_data.py 

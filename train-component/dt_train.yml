@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
 
-name: dt_train
+name: dt_train_component
 display_name: DT_Train
 type: command
 

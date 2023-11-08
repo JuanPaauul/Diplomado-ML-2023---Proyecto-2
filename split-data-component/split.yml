@@ -5,18 +5,17 @@ display_name: Split_DS
 type: command
 
 inputs:
-  clean_data: 
+  clean_data:
     type: uri_folder
   split_ratio_train:
     type: number
     default: 0.8
- 
+
 outputs:
   data_train:
     type: uri_file
   data_test:
     type: uri_file
-
 
 code: ./split_src
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
