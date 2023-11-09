@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import pickle
+import os
 
 parser = argparse.ArgumentParser("dt_train")
 parser.add_argument("--training_data", type=str, help="Path to training data")
@@ -28,7 +29,7 @@ print("Parametros: ...")
 for line in lines:
     print(line)
 
-training_data = pd.read_csv(Path(args.training_data))
+training_data = pd.read_csv(Path(args.training_data)/'train-data.csv')
 
 X_train = training_data.drop(columns=['Potability'])
 y_train = training_data['Potability']
@@ -36,6 +37,6 @@ y_train = training_data['Potability']
 dt = DecisionTreeClassifier(criterion= args.criterion, min_samples_split= args.min_samples_split, max_depth=args.max_depth)
 dt.fit(X_train,y_train)
 
-filename = Path(args.model_output) / '/decission_tree_modelo.pkl'
+filename = os.path.join(args.model_output, 'decission_tree_modelo.pkl')
 pickle.dump(dt, open(filename, "wb"))
 print(f"Modelo guardado en el directorio: {Path(args.model_output)}")

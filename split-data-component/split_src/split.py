@@ -2,6 +2,7 @@ import argparse
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import os
 
 parser = argparse.ArgumentParser("split")
 parser.add_argument("--clean_data", type=str, help="Path to a clean dataset")
@@ -25,9 +26,9 @@ print("Parametros: ...")
 for line in lines:
     print(line)
 
-clean_data = pd.read_csv(Path(args.clean_data) / 'clean_data.csv')
+clean_data = pd.read_csv(args.clean_data)
 
 train_data, test_data = train_test_split(clean_data, train_size=args.split_ratio_train , random_state=42)
 
-train_data.to_csv(Path(args.data_train), index=False)
-test_data.to_csv(Path(args.data_test), index=False)
+train_data.to_csv(os.path.join(args.data_train, 'train-data.csv'), index=False)
+test_data.to_csv(os.path.join(args.data_test, 'test-data.csv'), index=False)

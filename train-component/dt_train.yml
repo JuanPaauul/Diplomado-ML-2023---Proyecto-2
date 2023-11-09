@@ -6,7 +6,7 @@ type: command
 
 inputs:
   training_data:
-    type: uri_file
+    type: uri_folder
   criterion:
     type: string
     enum:

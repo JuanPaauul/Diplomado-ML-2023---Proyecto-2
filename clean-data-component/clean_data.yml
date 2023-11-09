@@ -10,7 +10,7 @@ inputs:
 
 outputs:
   data_clean_output:
-    type: uri_folder
+    type: uri_file
   corr_matrix_output:
     type: uri_file
 

@@ -8,7 +8,7 @@ inputs:
   model_input:
     type: uri_folder
   test_data:
-    type: uri_file
+    type: uri_folder
 
 outputs:
   score_output:

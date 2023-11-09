@@ -3,6 +3,7 @@ import argparse
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from pathlib import Path
+import os
 
 parser = argparse.ArgumentParser("evaluate")
 parser.add_argument("--scoring_result", type=str, help="Path of scoring result")
@@ -24,4 +25,4 @@ eval_msg = f"Accuracy: {accuracy:.2f}\n"
 eval_msg += f"Confusion Matrix:\n{confusion}\n"
 eval_msg += f"Classification Report:\n{report}"
 
-(Path(args.eval_output) / "evaluation_result.txt").write_text(eval_msg)
+os.path.join(args.eval_output, 'evaluation_result.txt').write_text(eval_msg)
