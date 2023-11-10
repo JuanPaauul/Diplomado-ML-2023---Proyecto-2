@@ -29,7 +29,7 @@ print("Parametros: ...")
 for line in lines:
     print(line)
 
-training_data = pd.read_csv(Path(args.training_data)/'train-data.csv')
+training_data = pd.read_csv(args.training_data)
 
 X_train = training_data.drop(columns=['Potability'])
 y_train = training_data['Potability']
@@ -37,6 +37,8 @@ y_train = training_data['Potability']
 dt = DecisionTreeClassifier(criterion= args.criterion, min_samples_split= args.min_samples_split, max_depth=args.max_depth)
 dt.fit(X_train,y_train)
 
-filename = os.path.join(args.model_output, 'decission_tree_modelo.pkl')
-pickle.dump(dt, open(filename, "wb"))
+# serializar modelo
+filename = "decission_tree_model.pkl"
+modelo_pkl = pickle.dump(dt, open((Path(args.model_output) / filename), "wb"))
+
 print(f"Modelo guardado en el directorio: {Path(args.model_output)}")

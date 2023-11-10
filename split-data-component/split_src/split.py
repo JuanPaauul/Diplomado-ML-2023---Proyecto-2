@@ -30,5 +30,5 @@ clean_data = pd.read_csv(args.clean_data)
 
 train_data, test_data = train_test_split(clean_data, train_size=args.split_ratio_train , random_state=42)
 
-train_data.to_csv(os.path.join(args.data_train, 'train-data.csv'), index=False)
-test_data.to_csv(os.path.join(args.data_test, 'test-data.csv'), index=False)
+train_data.to_csv(args.data_train)
+test_data.to_csv(args.data_test)
