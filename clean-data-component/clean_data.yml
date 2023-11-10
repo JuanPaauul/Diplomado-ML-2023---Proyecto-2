@@ -11,8 +11,8 @@ inputs:
 outputs:
   data_clean_output:
     type: uri_file
-  corr_matrix_output:
-    type: uri_file
+  pair_plot_folder:
+    type: uri_folder
 
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
 code: ./clean_data_src
@@ -21,4 +21,4 @@ command: >-
   python clean_data.py 
   --data_set ${{inputs.data_set}} 
   --data_clean_output ${{outputs.data_clean_output}}
-  --corr_matrix_output ${{outputs.corr_matrix_output}}
+  --pair_plot_folder ${{outputs.pair_plot_folder}}

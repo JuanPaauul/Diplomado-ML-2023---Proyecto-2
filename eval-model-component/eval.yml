@@ -6,13 +6,13 @@ type: command
 
 inputs:
   scoring_result:
-    type: uri_folder
+    type: uri_file
   target_column:
     type: string
 
 outputs:
   eval_output:
-    type: uri_folder
+    type: uri_file
 
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
 code: ./eval_src

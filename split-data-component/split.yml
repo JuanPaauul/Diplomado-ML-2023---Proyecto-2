@@ -13,9 +13,9 @@ inputs:
 
 outputs:
   data_train:
-    type: uri_folder
+    type: uri_file
   data_test:
-    type: uri_folder
+    type: uri_file
 
 code: ./split_src
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
